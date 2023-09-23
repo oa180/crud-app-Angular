@@ -1,0 +1,43 @@
+<div class="product flex flex-col gap-20 relative" id="productDetails">
+  <div class="container">
+    <div class="product-container">
+      <div class="product-img-container">
+        <img [src]="targetProduct!.thumbnail" alt="" />
+      </div>
+      <div class="product-info">
+        <h5>{{ targetProduct!.category }}</h5>
+        <h2>{{ targetProduct!.title }}</h2>
+        <div class="product-rate">
+          <h6>{{ targetProduct!.brand }}</h6>
+          <h3>{{ targetProduct!.rating }}</h3>
+        </div>
+        <p>{{ targetProduct!.description }}</p>
+        <h3>{{ targetProduct!.price | currency }}</h3>
+
+        <div class="mt-5 relative left-[50%]">
+          <button
+            [routerLink]="['/products', targetProduct!.id, 'edit']"
+            type="button"
+            class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+            (click)="deleteProduct(targetProduct!.id)"
+            routerLink="/products"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="w-52 relative left-[50%] outline outline-1 text-blue-800 hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    routerLink="/products"
+  >
+    Back To Products
+  </button>
+</div>
